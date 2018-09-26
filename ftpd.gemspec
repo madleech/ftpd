@@ -52,7 +52,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.authors = ["Wayne Conrad"]
   s.date = Ftpd::Release::DATE
-  s.description = Readme.new.description
+  s.description = "ftpd is a pure Ruby FTP server library.  It supports implicit and explicit TLS, IPV6, passive and active mode, and is unconditionally compliant per RFC-1123.  It can be used as part of a test fixture or embedded in a program."
   s.email = "kf7qga@gmail.com"
   s.executables = ["ftpdrb"]
   s.extra_rdoc_files = [
