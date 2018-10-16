@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative "gets_peer_address"
+
 module Ftpd
 
   class CommandLoop
@@ -7,6 +9,7 @@ module Ftpd
     extend Forwardable
 
     include Error
+    include GetsPeerAddress
 
     def initialize(session)
       @session = session
@@ -15,6 +18,7 @@ module Ftpd
     def read_and_execute_commands
       catch :done do
         begin
+          config.log.info "New connection from #{peer_ip(socket)}"
           reply "220 #{server_name_and_version}"
           loop do
             begin
